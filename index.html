@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto 2DEW</title>
-    <link rel="stylesheet" href="css/estilos.css"><!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="style.css"><!-- Enlace al archivo CSS -->
 </head>
 <body>
-    <img src="imagenes/Binter.png" alt="Binter">
-    <img src="imagenes/iberia.png" alt="Iberia">
-    <img src="imagenes/ryanair.png" alt="Ryanair">
+
+   <!--Cada botón es una imagen que lleva a una página/aerolínea diferente, los controlo mediante id 
+   y enlaces a sus respectivos html-->
+   <div class="aerolineas">
+   <img src="imagenes/iberia.png" id="bussines" alt="Iberia" class="Iberia">
+   <img src="imagenes/ryanair.png" id="eco" alt="Ryanair" class="Ryanair">
+   <img src="imagenes/Binter.png" id="low-cost" alt="Binter" class="Binter">
+   </div>
+
+
+  <!--las imágenes funcionan como botones que redirigen a otras páginas-->
+<script src="index.js"></script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+body {
+
+    text-align: center;
+    background-color: rgb(240, 240, 229);
+    justify-content: center;
+    
+}
+
+.aerolineas {
+    flex-direction: column; /*una encima de la otra*/
+    align-items: center; /*centro horizontalmente*/
+    display: flex; 
+    margin-top: 7%;
+}
+
+.aerolineas .Iberia {
+    width: 400px;
+    height: 100px;
+    margin-left: 10%;
+    cursor: pointer; /*cambia el cursor al pasar por encima*/
+}
+
+.aerolineas .Ryanair {
+    width: 400px;
+    height: 300px;
+    cursor: pointer; /*cambia el cursor al pasar por encima*/
+
+
+}
+
+.aerolineas .Binter {
+    width: 200px;
+    height: 60px;
+    cursor: pointer; /*cambia el cursor al pasar por encima*/
+    margin-right: 1%;
+}
