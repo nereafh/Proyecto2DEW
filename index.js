@@ -10,12 +10,15 @@
     window: objeto global que representa la ventana del navegador
     location: propiedad del objeto window que contiene información sobre la URL actual
     */
-   Iberia.onclick = function() {
+   Iberia.onclick = function otraPagina() {
+        alert("Has seleccionado Iberia, serás redirigido a la página de Iberia");
         window.location.href = "Iberia.html";
    };
-    Ryanair.onclick = function() {
+    Ryanair.onclick = function otraPagina() {
+      alert("Has seleccionado Ryanair, serás redirigido a la página de Iberia");
           window.location.href = "Ryanair.html";
     };
-    Binter.onclick = function() {
+    Binter.onclick = function otraPagina() {
+      alert("Has seleccionado Binter, serás redirigido a la página de Iberia");
           window.location.href = "Binter.html";
     };

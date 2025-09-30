@@ -10,13 +10,13 @@ body {
     flex-direction: column; /*una encima de la otra*/
     align-items: center; /*centro horizontalmente*/
     display: flex; 
-    margin-top: 7%;
+    margin-top: 10%;
 }
 
 .aerolineas .Iberia {
     width: 400px;
     height: 100px;
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer; /*cambia el cursor al pasar por encima*/
 }
 
