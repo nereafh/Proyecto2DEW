@@ -5,8 +5,8 @@ Pinto la tabla con document.write()
 Esta vez la tabla es de 6 filas y 4 columnas
 */
 
-let filas = 6;
-let columnas = 4;
+let filas = 20;
+let columnas = 2;
 
 
 /*

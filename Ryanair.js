@@ -5,7 +5,7 @@ Pinto la tabla con document.write()
 Esta vez la tabla es de 12 filas y 6 columnas
 */
 
-let filas = 12;
+let filas = 35;
 let columnas = 6;
 
 let residente;
@@ -28,7 +28,7 @@ while(!validarResidencia){
             case "no":
                // alert("Como no eres residente en Canarias, no se aplica ningún descuento");
                //Lo muestro
-                document.write("<h3>Resides en canarias: " + residente + "</h3>");
+                document.write("<h3 style = 'font-size: 14px;'>Resides en canarias: " + residente + "</h3>");
                 validarResidencia = true;
                 break;
 
@@ -69,19 +69,28 @@ for(let i = 0; i < filas; i++){
 Creo la tabla, recorro filas y columnas
 */
 
-document.write("<table border = 1>");
+document.write("<div class='contenedor'>");
+document.write("<img src='imagenes/avion.png' alt='Avion' class='fondoAvion'>");
+document.write("<table class='asientos'>");
 
 for(let i = 0; i < filas; i++){
     document.write("<tr>"); //Inicio fila
     for(let j = 0; j < columnas; j++) {
+        //Quiero que haya una separación entre columnas, en este caso 3 columnas, separación, otras 3 columnas, parae eso añado una línea con el color de fondo
+        if(j === 3){
+            document.write("<td class='pasilloIberia'></td>");
+
+        }
+
         //Pinto cada celda, si el asiento está libre (true) lo pinto de verde, si está ocupado (false) lo pinto de rojo
         if(asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
-            document.write("<td style='background-color: green; width: 50px; height: 50px; text-align: center;'> </td>"); 
+            document.write("<td style='background-color: green; width: 10px; height: 10px; text-align: center;'> </td>"); 
         } else {
-            document.write("<td style='background-color: red; width: 50px; height: 50px; text-align: center;'> </td>"); 
+            document.write("<td style='background-color: red; width: 10px; height: 10px; text-align: center;'> </td>"); 
         }
     }
     document.write("</tr>"); //Cierro fila
 
 }
 document.write("</table>");
+document.write("</div>"); //contenedor padre

@@ -34,3 +34,98 @@ body {
     cursor: pointer; /*cambia el cursor al pasar por encima*/
     margin-right: 1%;
 }
+
+
+/*-------------------RYANAIR---------------*/
+
+.contenedor {
+    position: relative;
+    height: 170px;
+    width: 400px;
+    margin: auto;
+
+}
+
+
+
+ .fondoAvion {
+    position: relative;
+    width: 100%; /* mismo tamaño que el contenedor padre, es decir, lo ocupa todo*/
+    height: 100%;
+    display: block;
+    transform: rotate(90deg);  /* rota la imagen 90º para vertical */
+    transform-origin: center ;
+    top: 120px;
+    left: 150px;
+    
+    
+
+}
+
+
+.asientos {
+    
+    position: absolute; /* de esta forma se superpone a la imagen*/
+    left: 85%;
+    top: 133%;
+    transform: translate(-42%, -50%) scale(0.6); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
+    transform-origin: center center;   
+    width: 130px;
+
+}
+
+
+
+ .pasillo{
+    border: none;
+    background-color: transparent;
+    width: 20px;
+}
+
+
+/*-----------------IBERIA------------------------*/
+
+.contenedorIberia {
+    position: relative;
+    height: 170px;
+    width: 400px;
+    margin: auto;
+
+}
+
+
+
+ .fondoAvionIberia {
+    position: relative;
+    width: 100%; /* mismo tamaño que el contenedor padre, es decir, lo ocupa todo*/
+    height: 100%;
+    display: block;
+    transform: rotate(90deg);  /* rota la imagen 90º para vertical */
+    transform-origin: center ;
+    top: 120px;
+    left: 150px;
+    
+    
+
+}
+
+
+.asientosIberia {
+    
+    position: absolute; /* de esta forma se superpone a la imagen*/
+    left: 98.5%;
+    top: 155%;
+    transform: translate(-42%, -50%) scale(0.9); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
+    transform-origin: center center;   
+    width: 115px;
+    height: 100px;   
+
+}
+
+
+
+ .pasilloIberia{
+    border: none;
+    background-color: transparent;
+    width: 15px;
+}

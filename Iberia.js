@@ -6,8 +6,8 @@ Asientos libres: verde, asientos ocupados: rojo
 
 */
 
-let filas = 10
-let columnas = 2;
+let filas = 40;
+let columnas = 9;
 
 let residente;
 let validarResidencia = false;
@@ -22,7 +22,7 @@ while(!validarResidencia){
             case "si":
                // alert("Como eres residente en Canarias, se aplica un descuento del 75%");
                //Lo muestro
-                document.write("<h3>Resides en canarias: " + residente + "</h3>");
+                document.write("<h3 style = 'font-size: 14px;'>Resides en canarias: " + residente + "</h3>");
                 validarResidencia = true;
                 break;
 
@@ -71,11 +71,9 @@ for(let i = 0; i < filas; i++) {
 
 }
 
-
-//Pinto la tabla con document.write()
-document.write("<h2>Asientos disponibles</h2>");
-document.write("<table border='1'>");
-
+document.write("<div class='contenedorIberia'>");
+document.write("<img src='imagenes/avion.png' alt='Avion' class='fondoAvionIberia'>");
+document.write("<table class='asientosIberia'>");
 //Recorro la matriz para pintar la tabla, comienzo por las filas
 /*
 tr: table row (fila de la tabla)
@@ -84,6 +82,14 @@ td: table data (celda de la tabla)
 for(let i = 0; i < filas; i++) {
     document.write("<tr>"); //Inicio fila
     for(let j = 0; j < columnas; j++) {
+        /*
+        Quiero que haya una separación entre columnas, en este caso 3 columnas, separación, otras 3 columnas, separación y otras 3 columnas
+        Si el número de filas es 3 O el número de columnas es 6, introduce un espacio en blanco, ambas se cumplirán
+        */
+        if(j === 3 || j === 6 ){
+            document.write("<td class='pasilloIberia'></td>");
+
+        }
         //Pinto cada celda, si el asiento está libre (true) lo pinto de verde, si está ocupado (false) lo pinto de rojo
         if(asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
             document.write("<td style='background-color: green; width: 50px; height: 50px; text-align: center;'> </td>"); 
@@ -96,6 +102,7 @@ for(let i = 0; i < filas; i++) {
 }
 
 document.write("</table>");
+document.write("</div>"); //Contenedor padre
 
 
 /*
