@@ -1,4 +1,4 @@
-    Iberia = document.getElementById("bussines");
+    Iberia = document.getElementById("business");
     Ryanair = document.getElementById("eco");
     Binter = document.getElementById("low-cost");
 
@@ -15,10 +15,10 @@
         window.location.href = "Iberia.html";
    };
     Ryanair.onclick = function otraPagina() {
-      alert("Has seleccionado Ryanair, serás redirigido a la página de Iberia");
+      alert("Has seleccionado Ryanair, serás redirigido a la página de Ryanair");
           window.location.href = "Ryanair.html";
     };
     Binter.onclick = function otraPagina() {
-      alert("Has seleccionado Binter, serás redirigido a la página de Iberia");
+      alert("Has seleccionado Binter, serás redirigido a la página de Binter");
           window.location.href = "Binter.html";
     };

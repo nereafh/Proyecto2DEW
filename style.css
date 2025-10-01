@@ -87,8 +87,8 @@ body {
 
 .contenedorIberia {
     position: relative;
-    height: 170px;
-    width: 400px;
+    height: 250px;
+    width: 600px;
     margin: auto;
 
 }
@@ -102,8 +102,8 @@ body {
     display: block;
     transform: rotate(90deg);  /* rota la imagen 90º para vertical */
     transform-origin: center ;
-    top: 120px;
-    left: 150px;
+    top: 170px;
+    left: 200px;
     
     
 
@@ -113,12 +113,11 @@ body {
 .asientosIberia {
     
     position: absolute; /* de esta forma se superpone a la imagen*/
-    left: 98.5%;
-    top: 155%;
-    transform: translate(-42%, -50%) scale(0.9); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
+    left: 83.3%;
+    top: 130%;
+    transform: translate(-50%, -50%) scale(0.8); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
     transform-origin: center center;   
-    width: 115px;
-    height: 100px;   
+    width: 160px;
 
 }
 
@@ -127,5 +126,53 @@ body {
  .pasilloIberia{
     border: none;
     background-color: transparent;
-    width: 15px;
+    width: 20px;
+}
+
+
+
+/*-----------------BINTER------------------------*/
+
+.contenedorBinter {
+    position: relative;
+    height: 250px;
+    width: 600px;
+    margin: auto;
+
+}
+
+
+
+ .fondoAvionBinter {
+    position: relative;
+    width: 100%; /* mismo tamaño que el contenedor padre, es decir, lo ocupa todo*/
+    height: 100%;
+    display: block;
+    transform: rotate(90deg);  /* rota la imagen 90º para vertical */
+    transform-origin: center ;
+    top: 170px;
+    left: 200px;
+    
+    
+
+}
+
+
+.asientosBinter {
+    
+    position: absolute; /* de esta forma se superpone a la imagen*/
+    left: 83.3%;
+    top: 130%;
+    transform: translate(-50%, -50%) scale(0.8); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
+    transform-origin: center center;   
+    width: 150px;
+
+}
+
+
+
+ .pasilloBinter{
+    border: none;
+    background-color: transparent;
+    width: 7px;
 }

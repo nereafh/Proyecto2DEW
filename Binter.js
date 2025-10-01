@@ -5,8 +5,11 @@ Pinto la tabla con document.write()
 Esta vez la tabla es de 6 filas y 4 columnas
 */
 
-let filas = 20;
-let columnas = 2;
+/*
+Creo un objeto de tipo avion en iberia.js, le doy parámetros
+nombre, filas, columnas, precioBase
+*/
+let binter = new avion("Binter", 25, 4, 60);
 
 
 /*
@@ -85,9 +88,10 @@ for(let i = 0; i < filas; i++){
 
 
 
+document.write("<div class='contenedorBinter'>");
+document.write("<img src='imagenes/avion.png' alt='Avion' class='fondoAvionBinter'>");
 //Pinto la tabla con document.write()
-document.write("<h2>Asientos disponibles</h2>");
-document.write("<table border='1'>");
+document.write("<table class='asientosBinter'>");
 
 //Recorro la matriz para pintar la tabla, comienzo por las filas
 /*
@@ -104,11 +108,17 @@ td: table data (celda de la tabla)
 for(let i = 0; i < filas; i++) {
     document.write("<tr>"); //Inicio fila
     for(let j = 0; j < columnas; j++) {
+        //Quiero que haya una separación entre columnas, en este caso 2 columnas, separación, otras 2 columnas, parae eso añado una línea con el color de fondo
+        if(j === 2){
+            document.write("<td class='pasilloBinter'></td>");
+
+        }
+
         //Pinto cada celda, si el asiento está libre (true) lo pinto de verde, si está ocupado (false) lo pinto de rojo
         if(asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
-            document.write("<td style='background-color: green; width: 50px; height: 50px; text-align: center;'> </td>"); 
+            document.write("<td style='background-color: green; width: 3px; height: 18px; text-align: center;'> </td>"); 
         } else {
-            document.write("<td style='background-color: red; width: 50px; height: 50px; text-align: center;'> </td>"); 
+            document.write("<td style='background-color: red; width: 3px; height: 18px; text-align: center;'> </td>"); 
         }
     }
     document.write("</tr>"); //Cierro fila
@@ -116,3 +126,4 @@ for(let i = 0; i < filas; i++) {
 }
 
 document.write("</table>");
+document.write("</div>");

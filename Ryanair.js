@@ -8,6 +8,12 @@ Esta vez la tabla es de 12 filas y 6 columnas
 let filas = 35;
 let columnas = 6;
 
+/*
+Creo un objeto de tipo avion en iberia.js, le doy parámetros
+nombre, filas, columnas, precioBase
+*/
+let ryanair = new avion("Ryanair", 35, 6, 80);
+
 let residente;
 let validarResidencia = false;
 
