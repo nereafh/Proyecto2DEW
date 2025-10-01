@@ -75,8 +75,9 @@ while(!validarResidencia){
 Continuo creando el array que contendrá los asientos, filas y columnas
 Para formar la tabla completa tendré que crear un array de dos dimensiones
 Empiezo por las filas y luego las columnas, daría igual hacerlo al revés
-*/
 
+ESE ARRAY YA ESTÁ CREADO EN LA SUPERCLASE AVION NO ES NECESARIO VOLVERLO A CREAR,
+LÓGICA YA APLICADA EN LA SUPERACLASE
 let asientos = [];
 for(let i = 0; i < filas; i++){
     asientos[i] = []; 
@@ -85,6 +86,9 @@ for(let i = 0; i < filas; i++){
     }
 
 }
+*/
+
+
 
 
 
@@ -105,9 +109,17 @@ td: table data (celda de la tabla)
 
 
 */
-for(let i = 0; i < filas; i++) {
+ /*
+    .this
+    Dentro de un método de una clase u objeto: apunta a la instancia del objeto
+    En este caso la instancia es iberia y apunta al objeto avion para poder usar su estado y comportamiento
+
+
+    Fuera de cualquier objeto: this apuntaría al objeto global, el cual en un navegador es window
+    */
+for(let i = 0; i < binter.filas; i++) {
     document.write("<tr>"); //Inicio fila
-    for(let j = 0; j < columnas; j++) {
+    for(let j = 0; j < binter.columnas; j++) {
         //Quiero que haya una separación entre columnas, en este caso 2 columnas, separación, otras 2 columnas, parae eso añado una línea con el color de fondo
         if(j === 2){
             document.write("<td class='pasilloBinter'></td>");
@@ -115,7 +127,7 @@ for(let i = 0; i < filas; i++) {
         }
 
         //Pinto cada celda, si el asiento está libre (true) lo pinto de verde, si está ocupado (false) lo pinto de rojo
-        if(asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
+        if(binter.asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
             document.write("<td style='background-color: green; width: 3px; height: 18px; text-align: center;'> </td>"); 
         } else {
             document.write("<td style='background-color: red; width: 3px; height: 18px; text-align: center;'> </td>"); 

@@ -69,9 +69,18 @@ while(!validarResidencia){
     tr: table row (fila de la tabla)
     td: table data (celda de la tabla)
     */
-    for(let i = 0; i < this.filas; i++) {
+
+    /*
+    .this
+    Dentro de un método de una clase u objeto: apunta a la instancia del objeto
+    En este caso la instancia es iberia y apunta al objeto avion para poder usar su estado y comportamiento
+
+
+    Fuera de cualquier objeto: this apuntaría al objeto global, el cual en un navegador es window
+    */
+    for(let i = 0; i < iberia.filas; i++) {
     document.write("<tr>"); //Inicio fila
-    for(let j = 0; j < this.columnas; j++) {
+    for(let j = 0; j < iberia.columnas; j++) {
         /*
         Quiero que haya una separación entre columnas, en este caso 3 columnas, separación, otras 3 columnas, separación y otras 3 columnas
         Si el número de filas es 3 O el número de columnas es 6, introduce un espacio en blanco, ambas se cumplirán
@@ -81,7 +90,7 @@ while(!validarResidencia){
 
         }
         //Pinto cada celda, si el asiento está libre (true) lo pinto de verde, si está ocupado (false) lo pinto de rojo
-        if(this.asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
+        if(iberia.asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
             document.write("<td style='background-color: green; width: 10px; height: 10px; text-align: center;'> </td>"); 
         } else {
             document.write("<td style='background-color: red; width: 10px; height: 10px; text-align: center;'> </td>"); 

@@ -59,7 +59,7 @@ while(!validarResidencia){
 /*
 Repito los pasos anteriores
 Creo un array que recorra las filas y dentro de ellas las columas
-*/
+LOGICA YA APLICADA EN LA SUPERCLASE AVION
 let asientos = [];
 
 for(let i = 0; i < filas; i++){
@@ -69,19 +69,30 @@ for(let i = 0; i < filas; i++){
         asientos[i][j] = true;
     }
 }
+*/
+
 
 
 /*
 Creo la tabla, recorro filas y columnas
 */
 
+
 document.write("<div class='contenedor'>");
 document.write("<img src='imagenes/avion.png' alt='Avion' class='fondoAvion'>");
 document.write("<table class='asientos'>");
 
-for(let i = 0; i < filas; i++){
+    /*
+    .this
+    Dentro de un método de una clase u objeto: apunta a la instancia del objeto
+    En este caso la instancia es iberia y apunta al objeto avion para poder usar su estado y comportamiento
+
+
+    Fuera de cualquier objeto: this apuntaría al objeto global, el cual en un navegador es window
+    */
+for(let i = 0; i < ryanair.filas; i++){
     document.write("<tr>"); //Inicio fila
-    for(let j = 0; j < columnas; j++) {
+    for(let j = 0; j < ryanair.columnas; j++) {
         //Quiero que haya una separación entre columnas, en este caso 3 columnas, separación, otras 3 columnas, parae eso añado una línea con el color de fondo
         if(j === 3){
             document.write("<td class='pasilloIberia'></td>");
@@ -89,7 +100,7 @@ for(let i = 0; i < filas; i++){
         }
 
         //Pinto cada celda, si el asiento está libre (true) lo pinto de verde, si está ocupado (false) lo pinto de rojo
-        if(asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
+        if(ryanair.asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
             document.write("<td style='background-color: green; width: 10px; height: 10px; text-align: center;'> </td>"); 
         } else {
             document.write("<td style='background-color: red; width: 10px; height: 10px; text-align: center;'> </td>"); 
