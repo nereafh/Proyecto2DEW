@@ -7,9 +7,9 @@ Esta vez la tabla es de 6 filas y 4 columnas
 
 /*
 Creo un objeto de tipo avion en iberia.js, le doy parámetros
-nombre, filas, columnas, precioBase
+nombre, filas, columnas, precioBase, filaBusiness, filaEco, filaLowCost
 */
-let binter = new avion("Binter", 25, 4, 60);
+let binter = new avion("Binter", 25, 4, 60, 7, 9, 9);
 
 
 /*
@@ -39,7 +39,7 @@ while(!validarResidencia){
         switch(residente){
 
             case "si":
-               // alert("Como eres residente en Canarias, se aplica un descuento del 75%");
+               //alert("Como eres residente en Canarias, se aplica un descuento del 75%");
                //Lo muestro
                 document.write("<h3>Resides en canarias: " + residente + "</h3>");
                 validarResidencia = true;
@@ -48,7 +48,7 @@ while(!validarResidencia){
             case "no":
                // alert("Como no eres residente en Canarias, no se aplica ningún descuento");
                //Lo muestro
-                document.write("<h3>Resides en canarias: " + residente + "</h3>");
+                //document.write("<h3>Resides en canarias: " + residente + "</h3>");
                 validarResidencia = true;
                 break;
 
@@ -128,9 +128,9 @@ for(let i = 0; i < binter.filas; i++) {
 
         //Pinto cada celda, si el asiento está libre (true) lo pinto de verde, si está ocupado (false) lo pinto de rojo
         if(binter.asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
-            document.write("<td style='background-color: green; width: 3px; height: 18px; text-align: center;'> </td>"); 
+            document.write("<td id='asiento-" + i + "-" +j + " ' style='background-color: green; width: 3px; height: 18px; text-align: center;'> </td>"); 
         } else {
-            document.write("<td style='background-color: red; width: 3px; height: 18px; text-align: center;'> </td>"); 
+            document.write("<td id='asiento-" + i + "-" +j + " ' style='background-color: red; width: 3px; height: 18px; text-align: center;'> </td>"); 
         }
     }
     document.write("</tr>"); //Cierro fila

@@ -15,13 +15,20 @@ Utilizo constructores parametrizados
 
 class avion{
 
-constructor (nombre, filas, columnas, precioBase) {
+constructor (nombre, filas, columnas, precioBase, filasBusiness, filasEco, filasLowCost) {
 
     this.nombre = nombre,
     this.filas = filas,
     this.columnas = columnas,
     this.precioBase = precioBase,
     this.asientos = []; //Array que muestra si los asientos están o no libres
+
+
+    //Número de filas por clase
+    this.filasBusiness = filasBusiness;
+    this.filasEco = filasEco;
+    this.filasLowCost = filasLowCost;
+
 
     //Métodos
     /*
@@ -30,7 +37,6 @@ constructor (nombre, filas, columnas, precioBase) {
     Creo una matriz (array bidimensional) para representar los asientos, filas y columnas
     Empiezo por las filas y luego las columnas, daría igual hacerlo al revés
     */
-   
     for(let i = 0; i < this.filas; i++) {
     this.asientos[i] = []; //Creo una nueva fila en la matriz, cada vez que itero se crea una nueva fila
     for(let j = 0; j < this.columnas; j++) {
@@ -90,6 +96,34 @@ constructor (nombre, filas, columnas, precioBase) {
 
 
     /*
+    Devuelve la clase según la fila, para ello solicito la fila en la que se encuentra
+    Si la fila es menor o igual que el número de filasBusiness entonces pertenece a esa clase,
+    tengo en cuenta que los asientos empiezan a númerarse desde el 0 comenzando por
+    arriba a la izquierda y que las clases seguirán el orden: 1º Business, 2º Económica, 3º LoWCost
+    Por lo que, para referirme a un asiento de la clase Económica o LowCost, tendré que tener
+    en cuenta los asientos anteriores de las anteriores clases, sumándolos
+
+    Ejemplo con Iberia:
+    Business: filas 0 a 13 (14 filas)
+
+    Económica: filas 14 a 26 (13 filas)
+
+    Low-cost: filas 27 a 39 (13 filas)
+    */
+    obtenerClase(fila){
+        if(fila < this.filasBusiness){
+            return "Business";
+
+        } else if(fila < this.filasBusiness + this.filasEco){
+            return "Económica";
+        } else {
+
+            return "Low-Cost";
+        }
+    }
+
+
+    /*
     Calcular precio según la clase
     3 clases:
     business = precioBase * 2
@@ -97,18 +131,36 @@ constructor (nombre, filas, columnas, precioBase) {
     low-cost = precioBase
     Y teniendo en cuenta si es o no residente
     */
-     precioClase(clase){
-    switch(clase.toLowerCase()){
+     precioClase(fila, esResidente){ //Se le pasan los parametros: fila y si es o no residente
+        
+        //Obtengo la clase del usuario mediante la función anterior, le paso el parametro fila, utilizo .this para apuntar el método dentro de la clase el cual se refiere al objeto
+        let clase = this.obtenerClase(fila);
+
+        //Creo una variable que almacena el precio 
+        let precio = this.precioBase;
+        
+    switch(clase){
         case 'business':
-            return this.precioBase * 2; //Al poner directamente return en vez de break, sale directamente de la función
+        precio = this.precioBase * 2;
+        break; 
 
         case 'eco':
-            return this.precioBase * 1.5;
-        
+        precio = this.precioBase * 1.5;
+        break;  
+
         case 'low-cost':
-            return this.precioBase;
+        precio = this.precioBase;
+        break; 
+
         default:
-            return 'Error inexperado';
+        "Error inexperado";
+        break;
+    }
+
+    if (esResidente){ //Si es residente se le hace un descuento del 75%, sea de la clase que sea
+        precio = this.precioBase * 0.25;
+
+        return precio; //devuelvo el precio final
     }
 
 }

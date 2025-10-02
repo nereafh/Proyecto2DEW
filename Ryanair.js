@@ -5,14 +5,13 @@ Pinto la tabla con document.write()
 Esta vez la tabla es de 12 filas y 6 columnas
 */
 
-let filas = 35;
-let columnas = 6;
+
 
 /*
 Creo un objeto de tipo avion en iberia.js, le doy parámetros
-nombre, filas, columnas, precioBase
+nombre, filas, columnas, precioBase, filaBusiness, filaEco, filaLowCost
 */
-let ryanair = new avion("Ryanair", 35, 6, 80);
+let ryanair = new avion("Ryanair", 35, 6, 80, 11, 12, 12);
 
 let residente;
 let validarResidencia = false;
@@ -101,9 +100,9 @@ for(let i = 0; i < ryanair.filas; i++){
 
         //Pinto cada celda, si el asiento está libre (true) lo pinto de verde, si está ocupado (false) lo pinto de rojo
         if(ryanair.asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
-            document.write("<td style='background-color: green; width: 10px; height: 10px; text-align: center;'> </td>"); 
+            document.write("<td id='asiento-" + i + "-" +j + " ' style='background-color: green; width: 10px; height: 10px; text-align: center;'> </td>"); 
         } else {
-            document.write("<td style='background-color: red; width: 10px; height: 10px; text-align: center;'> </td>"); 
+            document.write("<td id='asiento-" + i + "-" +j + " ' style='background-color: red; width: 10px; height: 10px; text-align: center;'> </td>"); 
         }
     }
     document.write("</tr>"); //Cierro fila
