@@ -23,5 +23,9 @@
           window.location.href = "Binter.html";
     };
 
+/*
 
+En la misma sesión el usuario puede liberar el asiento ocupado por él
+En diferente sesión donde ya se ha guardado anteriormente, no puede
+*/
     
