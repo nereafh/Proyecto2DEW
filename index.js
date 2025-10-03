@@ -24,15 +24,4 @@
     };
 
 
-    /*
     
-    El usuario entra en su primera sesión, elige cualquier compañia
-    ocupa los asientos que quiera, éstos cambian a rojo/ocupados, si en culquier
-    momento de la misma sesión el usuario se arrepiente de ocupar algunos de los
-    asientos ya comprados se le dará la opción de liberar dichos asientos seleccionados
-    utilizando el método liberar
-    Por otro lado, si el usuario ocupa X asientos y sale de la sesión, esos asientos
-    quedan completamente guardados y ya no hay manera de liberarlos por estar en una 
-    sesión diferente a la anterior donde sí tenía oportunidad 
-    
-    */
