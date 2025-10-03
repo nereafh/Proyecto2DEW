@@ -173,22 +173,21 @@ let validarResidencia = false;
 while(!validarResidencia){
     residente = prompt("¿Eres residente en Canarias? (si/no)").toLowerCase();
 
-    if(residente === "si" || residente === "no"){
 
         switch(residente){
 
             case "si":
                // alert("Como eres residente en Canarias, se aplica un descuento del 75%");
                //Lo muestro
-                document.write("<h3 style = 'font-size: 14px;'>Se aplicará el 75% de descuento</h3>");
-                validarResidencia = true;
+                //document.write("<h3 style = 'font-size: 14px;'>Se aplicará el 75% de descuento</h3>");
+                validarResidencia = true; //sale del bucle
                 break;
 
             case "no":
                // alert("Como no eres residente en Canarias, no se aplica ningún descuento");
                //Lo muestro
                 //document.write("<h3>No hay descuento aplicable</h3>");
-                validarResidencia = true;
+                validarResidencia = true; //sale del bucle
                 break;
 
             default:
@@ -200,10 +199,7 @@ while(!validarResidencia){
 
 
 
-    } else {
-        alert("Respuesta no válida, por favor responde si o no");
-    }
-
+   
 
 
 }
@@ -228,8 +224,24 @@ la función contiene eventos, esa lógica no puede estar separada
 
 Si el usuario confirma se reserva/ocupa el asiento, sino sale para que el usuario pueda elegir un nuevo asiento
 esto lo manejo con la función reservar
+
+Muestro la clase: business, económica, low-cost, el precio final, si se ha aplicado descuento o no y la confirmación de reserva
 */
-let confirmar = prompt("Has elegido un asiento " + clase + ". Precio final: " + precioFinal + "€. ¿Confirmar reserva? (si/no)").toLowerCase();
+
+
+let mensajeConfirmacion;
+if(residente === "si"){
+ mensajeConfirmacion = "Has elegido un asiento: " + clase + ". Precio final: " + precioFinal + "€. Se aplicó un 75% de descuento por ser residente. ¿Desea confirmar reserva? (si/no)"
+
+} else {
+ mensajeConfirmacion = "Has elegido un asiento: " + clase + ". Precio final: " + precioFinal + "€. No se aplicó descuento. ¿Desea confirmar reserva? (si/no)"
+
+}
+
+
+let confirmar = prompt(mensajeConfirmacion).toLowerCase();
+
+
    
     switch(confirmar){
     case "si":
