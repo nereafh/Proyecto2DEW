@@ -140,28 +140,34 @@ constructor (nombre, filas, columnas, precioBase, filasBusiness, filasEco, filas
         let precio = this.precioBase;
         
     switch(clase){
-        case 'business':
+        case 'Business':
         precio = this.precioBase * 2;
         break; 
 
-        case 'eco':
+        case 'Económica':
         precio = this.precioBase * 1.5;
         break;  
 
-        case 'low-cost':
+        case 'Low-Cost':
         precio = this.precioBase;
         break; 
 
         default:
-        "Error inexperado";
+        console.log("Error inexperado");
         break;
     }
 
-    if (esResidente){ //Si es residente se le hace un descuento del 75%, sea de la clase que sea
-        precio = this.precioBase * 0.25;
+    if (esResidente === "si"){ //Si es residente se le hace un descuento del 75%, sea de la clase que sea, sobre el precio ya calculado en el paso anterior
+        precio = precio * 0.25;
 
-        return precio; //devuelvo el precio final
     }
+
+    /*
+    El precio final lo tengo que devolver fuera del if, ya que sino
+    no tendrá en cuenta el resto de precios 
+    */
+    return precio; //devuelvo el precio final
+
 
 }
     
