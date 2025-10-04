@@ -69,9 +69,32 @@ document.write("</table>");
 document.write("</div>"); //Contenedor padre
     
 
- 
+ //-------------INICIALIZAR LOCALSTORAGE----------
+/*
+Recorro la tabla, filas y columnas
+Declaro una clave única para cada asiento basándome en el id de los asientos
+esta clave se utiliza en sessionStorage para guardar si el asiento seleccionado 
+está libre u ocupado
 
+sessionStorage solo almacena cadenas
+*/
+for(let i = 0; i < iberia.filas; i++){
+    for(let j = 0; j < iberia.columnas; j++){
+        let clave = "asiento-" + i + "-" + j;
+        let td = document.getElementById(clave);
 
+        if(sessionStorage.getItem(clave) == null){
+            // Si hay valor previo en sessionStorage, usamos ese estado
+           sessionStorage.setItem(clave, iberia.asientos[i][j] ? "true" : "false");
+        } else {
+            // Si ya hay valor guardado, lo usamos para actualizar la matriz
+            iberia.asientos[i][j] = (sessionStorage.getItem(clave) === "true");
+        }
+
+        // Pintamos el asiento según su estado actual
+        if(td) td.style.backgroundColor = iberia.asientos[i][j] ? "green" : "red";
+    }
+}
 
 //--------------MANEJO EVENTOS ASIENTOS-------------
 
@@ -92,7 +115,8 @@ for(let i = 0; i < iberia.filas; i++){
     */
     let fila = i; 
     let columna = j;
-    let asientoEvento = document.getElementById("asiento-" + i + "-" + j);
+    let clave = "asiento-" + fila + "-" + columna;
+    let asientoEvento = document.getElementById(clave);
 
         /*
         onmouseover: cursor sobre elemento
@@ -100,50 +124,24 @@ for(let i = 0; i < iberia.filas; i++){
         onmousedown: se presiona un botón del mouse sobre el elemento
         onmouseup: se suelta un botón del mouse
         */
-        asientoEvento.onmouseover = function SobreElemento(){
+        
 
-            if(iberia.asientos[fila][columna]){
-                asientoEvento.style.backgroundColor = " rgba(0, 128, 0, 0.4)";
-            } else {
-                asientoEvento.style.backgroundColor = "rgba(255, 0, 0, 0.4)";
-            }
+             asientoEvento.onmouseover = function SobreElemento() {
+            asientoEvento.style.backgroundColor = iberia.asientos[fila][columna] ? "rgba(0,128,0,0.4)" : "rgba(255,0,0,0.4)";
         }
 
-
-        asientoEvento.onmouseout = function SaleDelElemento() {
-            if (iberia.asientos[fila][columna]) {
-
-        asientoEvento.style.backgroundColor = "green"; //libre
-
-        }else {
-
-        asientoEvento.style.backgroundColor = "red"; //ocupado
-    }
-  }  
-
-
-        asientoEvento.onmousedown = function PresionaBoton(){
-            if(iberia.asientos[fila][columna]){
-                asientoEvento.style.backgroundColor = "lightgreen";
-            } else {
-                asientoEvento.style.backgroundColor = "rgba(255,0,0,0.6)";
-            }
+       asientoEvento.onmouseout = function() {
+            asientoEvento.style.backgroundColor = iberia.asientos[fila][columna] ? "green" : "red";
         }
-/*
-// Evento cuando se suelta el mouse sobre el asiento
-        asientoEvento.onmouseup = function () {
-            if (!iberia.asientos[i][j]) {
-                alert("Asiento ocupado. Selecciona otro.");
-                return;
-            }
-*/
-        asientoEvento.onmouseup = function PresionaBoton(){
-            if(iberia.asientos[fila][columna]){
-                asientoEvento.style.backgroundColor = "green";
-            } else {
-                asientoEvento.style.backgroundColor = "red";
-            }
+        asientoEvento.onmousedown = function() {
+            asientoEvento.style.backgroundColor = iberia.asientos[fila][columna] ? "lightgreen" : "rgba(255,0,0,0.6)";
         }
+        asientoEvento.onmouseup = function() {
+            asientoEvento.style.backgroundColor = iberia.asientos[fila][columna] ? "green" : "red";
+        }
+ 
+
+
 
     
         
@@ -155,15 +153,16 @@ for(let i = 0; i < iberia.filas; i++){
         Si  iberia.asientos[fila][columna] es false significa que está ocupado
         */
         asientoEvento.onclick = function() {
-            if (!iberia.asientos[fila][columna]) {
-                alert("Asiento ocupado. Selecciona otro.");
-                return;
-            }
+        let estado = iberia.asientos[fila][columna];
+                
+            
 
 
 
 
+switch (estado){
 
+    case true: //asiento libre
 
 
 //--------------------RESIDENCIA-----------
@@ -197,12 +196,9 @@ while(!validarResidencia){
 
         console.log("Validación de residencia correcta");
 
-
-
-   
-
-
 }
+
+
 
 
 //-------------PRECIO FINAL----------
@@ -245,7 +241,10 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
    
     switch(confirmar){
     case "si":
-        iberia.reservar(i, j);
+        iberia.reservar(fila, columna);
+        //actualizo el localStorage
+        sessionStorage.setItem(clave, "false");
+        iberia.asientos[fila][columna] = false; //sincronizo/actualizo el objeto
         asientoEvento.style.backgroundColor = "red";
         alert("Reserva confirmada. Gracias.");
     break;
@@ -258,6 +257,43 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
     break;
     }
 
+    break; //fin del case true del gran switch
+    /*
+    Si el asiento ya estaba ocupado (en la misma sesión) el usuario puede arrepentirse
+    y desocuparlo
+    */
+
+
+    case false:
+
+
+    let liberar
+    liberar = prompt("Este asiento ya está ocupado. ¿Desea liberarlo? (si/no)").toLowerCase();
+
+    switch(liberar){
+
+        case "si":
+            
+            iberia.liberar(fila, columna);
+            sessionStorage.setItem(clave, "true"); // actualizar asiento libre
+            iberia.asientos[i][j] = true; //sincronizo/actualizo el asiento
+            asientoEvento.style.backgroundColor = "green";
+            
+            break;
+
+        case "no":
+            asientoEvento.style.backgroundColor = "red";
+            break;
+
+        default:
+            alert("Respuesta no válida.");
+            asientoEvento.style.backgroundColor = "red";
+            break;
+    }
+    break; //cierre case false gran switch
+
+}
+        
 
 } //cierre evento onclick
 } //cierre for 2

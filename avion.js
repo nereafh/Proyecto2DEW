@@ -86,10 +86,10 @@ constructor (nombre, filas, columnas, precioBase, filasBusiness, filasEco, filas
 
     liberar(fila, columna){
         if(this.asientos[fila][columna]){
-        this.asientos[fila][columna] = true; //los que antes estaban ocupados/false ahora pasan a libres/true
+        this.asientos[fila][columna] = true; 
         return true; //acción realizada correctamente
-    } else {
-        alert("Asiento ya liberado");
+    } else { //los que antes estaban ocupados/false ahora pasan a libres/true
+        alert("Asiento liberado.");
         return false;
     }
     }
