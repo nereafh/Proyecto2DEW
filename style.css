@@ -3,18 +3,91 @@ body {
     text-align: center;
     background-color: rgb(240, 240, 229);
     justify-content: center;
+    margin-top: 3%;
+    margin-left: 3%;
     
 }
 
+/*-----------------LEYENDA-AEROLINEAS----------*/
+.leyenda {
+  font-family: Arial, sans-serif;
+  
+
+}
+
+
+/*Movimientos personalizados, las etiquetas HTML como <p> no se ponen con ., las clases sí */
+
+
+.leyenda .NumAsientos {
+  position: relative;
+  top: -215px;  /* menor, mas sube */
+  left: 350px;  /* mueve a la derecha */
+  width: 150px;
+  height: 230px;
+  
+}
+
+
+.leyenda  .NumAsientos img  {
+  position: absolute;
+  top: 80px;  /* menor, mas sube */
+  right: -300px;  /* mueve a la derecha */
+  width: 700px;
+  height: 350px;
+  
+}
+
+.leyenda .NumAsientosRyanair {
+  position: relative;
+  top: -150px;  /* menor, mas sube */
+  left: 200px;  /* mueve a la derecha */
+  width: 150px;
+  height: 230px;
+  font-size: 11px;
+  
+}
+
+.leyenda  .NumAsientosRyanair img  {
+  position: absolute;
+  top: 50px;  /* menor, mas sube */
+  right: -200px;  /* mueve a la derecha */
+  width: 500px;
+  height: 300px;
+  
+}
+
+.leyenda .NumAsientosBinter {
+  position: relative;
+  top: -220px;  /* menor, mas sube */
+  left: 350px;  /* mueve a la derecha */
+  width: 150px;
+  height: 230px;
+  
+}
+
+.leyenda  .NumAsientosBinter img  {
+  position: absolute;
+  top: 100px;  /* menor, mas sube */
+  right: -300px;  /* mueve a la derecha */
+  width: 800px;
+  height: 450px;
+  
+}
+
+
+
+
+/*-----AEROLINEAS-----*/
 .aerolineas {
     flex-direction: column; /*una encima de la otra*/
     align-items: center; /*centro horizontalmente*/
     display: flex; 
-    margin-top: 10%;
+    margin-top: 7%;
 }
 
 .aerolineas .Iberia {
-    width: 400px;
+    width: 370px;
     height: 100px;
     margin-left: 7%;
     cursor: pointer; /*cambia el cursor al pasar por encima*/
@@ -30,9 +103,10 @@ body {
 
 .aerolineas .Binter {
     width: 200px;
-    height: 60px;
+    height: 45px;
     cursor: pointer; /*cambia el cursor al pasar por encima*/
-    margin-right: 1%;
+    margin-right: 0.3%;
+    margin-top: 1.5%;
 }
 
 
@@ -56,7 +130,7 @@ body {
     transform: rotate(90deg);  /* rota la imagen 90º para vertical */
     transform-origin: center ;
     top: 120px;
-    left: 150px;
+    left: 200px;
     
     
 
@@ -66,7 +140,7 @@ body {
 .asientos {
     
     position: absolute; /* de esta forma se superpone a la imagen*/
-    left: 85%;
+    left: 97.5%;
     top: 133%;
     transform: translate(-42%, -50%) scale(0.6); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
     transform-origin: center center;   
@@ -103,7 +177,7 @@ body {
     transform: rotate(90deg);  /* rota la imagen 90º para vertical */
     transform-origin: center ;
     top: 170px;
-    left: 200px;
+    left: 300px;
     
     
 
@@ -113,7 +187,7 @@ body {
 .asientosIberia {
     
     position: absolute; /* de esta forma se superpone a la imagen*/
-    left: 83.3%;
+    left: 100%;
     top: 130%;
     transform: translate(-50%, -50%) scale(0.8); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
     transform-origin: center center;   
@@ -151,7 +225,7 @@ body {
     transform: rotate(90deg);  /* rota la imagen 90º para vertical */
     transform-origin: center ;
     top: 170px;
-    left: 200px;
+    left: 300px;
     
     
 
@@ -161,7 +235,7 @@ body {
 .asientosBinter {
     
     position: absolute; /* de esta forma se superpone a la imagen*/
-    left: 83.3%;
+    left: 100%;
     top: 130%;
     transform: translate(-50%, -50%) scale(0.8); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
     transform-origin: center center;   
