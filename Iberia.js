@@ -110,13 +110,15 @@ document.write("</div>");
 
 
 
- //-------------INICIALIZAR SESSIONSTORAGE----------
+ //-------------INICIALIZAR LOCALSTORAGE----------
 /*
 Recorro la tabla, filas y columnas
-esta clave se utiliza en sessionStorage para guardar si el asiento seleccionado 
+esta clave se utiliza en localStorage para guardar si el asiento seleccionado 
 está libre u ocupado
 
-sessionStorage solo almacena cadenas
+sessionStorage y localStorage solo almacena cadenas
+sessionStorage: solo guarda durante la sesión
+localStorage: guarda en local, es decir, aunque se cierre la sesión
 */
 for(let i = 0; i < iberia.filas; i++){
     for(let j = 0; j < iberia.columnas; j++){
@@ -124,11 +126,11 @@ for(let i = 0; i < iberia.filas; i++){
         let clave = "asiento-" + i + "-" + j; //Declaro una clave única para cada asiento basándome en el id de los asientos
         let td = document.getElementById(clave); //los asientos se encuentran en el td de la tabla
 
-        if(sessionStorage.getItem(clave) == null){ //si está vacío, quiere decir que se guarda el valor inicial que ya había: libre
-           sessionStorage.setItem(clave, iberia.asientos[i][j] ? "true" : "false");
+        if(localStorage.getItem(clave) == null){ //si está vacío, quiere decir que se guarda el valor inicial que ya había: libre
+           localStorage.setItem(clave, iberia.asientos[i][j] ? "true" : "false");
         } else { //si ya hay valor previo actualizo el estado del objeto
         
-            iberia.asientos[i][j] = (sessionStorage.getItem(clave) === "true");
+            iberia.asientos[i][j] = (localStorage.getItem(clave) === "true");
         }
 
         //Pinto el asiento según su estado actual 
@@ -299,7 +301,7 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
     case "si":
         iberia.reservar(fila, columna);
         //actualizo sessionStorage
-        sessionStorage.setItem(clave, "false");
+        localStorage.setItem(clave, "false");
         iberia.asientos[fila][columna] = false; //sincronizo/actualizo el objeto
         asientoEvento.style.backgroundColor = "red";
         alert("Reserva confirmada. Gracias.");
@@ -335,7 +337,7 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
         case "si":
             
             iberia.liberar(fila, columna);
-            sessionStorage.setItem(clave, "true"); // actualizar asiento libre
+            localStorage.setItem(clave, "true"); // actualizar asiento libre
             iberia.asientos[fila][columna] = true; //sincronizo/actualizo el asiento
             asientoEvento.style.backgroundColor = "green";
             

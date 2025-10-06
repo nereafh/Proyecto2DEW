@@ -18,42 +18,43 @@ body {
 
 /*Movimientos personalizados, las etiquetas HTML como <p> no se ponen con ., las clases sí */
 
-
+/*Iberia*/
 .leyenda .NumAsientos {
   position: relative;
-  top: -215px;  /* menor, mas sube */
-  left: 350px;  /* mueve a la derecha */
+  top: -225px;  /* menor, mas sube */
+  left: 260px;  /* mueve a la derecha */
   width: 150px;
   height: 230px;
+  font-size: 13px;
   
 }
 
-
+/*Iberia*/
 .leyenda  .NumAsientos img  {
   position: absolute;
   top: 80px;  /* menor, mas sube */
   right: -300px;  /* mueve a la derecha */
-  width: 700px;
-  height: 350px;
+  width: 600px;
+  height: 300px;
   
 }
 
 .leyenda .NumAsientosRyanair {
   position: relative;
-  top: -150px;  /* menor, mas sube */
-  left: 200px;  /* mueve a la derecha */
+  top: -220px;  /* menor, mas sube */
+  left: 350px;  /* mueve a la derecha */
   width: 150px;
   height: 230px;
-  font-size: 11px;
+  font-size: 17px;
   
 }
 
 .leyenda  .NumAsientosRyanair img  {
   position: absolute;
-  top: 50px;  /* menor, mas sube */
-  right: -200px;  /* mueve a la derecha */
-  width: 500px;
-  height: 300px;
+  top: 100px;  /* menor, mas sube */
+  right: -420px;  /* mueve a la derecha */
+  width: 700px;
+  height: 400px;
   
 }
 
@@ -63,7 +64,8 @@ body {
   left: 350px;  /* mueve a la derecha */
   width: 150px;
   height: 230px;
-  
+  font-size: 17px;
+
 }
 
 .leyenda  .NumAsientosBinter img  {
@@ -114,8 +116,8 @@ body {
 
 .contenedor {
     position: relative;
-    height: 170px;
-    width: 400px;
+    height: 250px;
+    width: 600px;
     margin: auto;
 
 }
@@ -129,8 +131,8 @@ body {
     display: block;
     transform: rotate(90deg);  /* rota la imagen 90º para vertical */
     transform-origin: center ;
-    top: 120px;
-    left: 200px;
+    top: 170px;
+    left: 300px;
     
     
 
@@ -141,10 +143,10 @@ body {
     
     position: absolute; /* de esta forma se superpone a la imagen*/
     left: 97.5%;
-    top: 133%;
+    top: 130%;
     transform: translate(-42%, -50%) scale(0.6); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
     transform-origin: center center;   
-    width: 130px;
+    width: 200px;
 
 }
 
@@ -153,7 +155,7 @@ body {
  .pasillo{
     border: none;
     background-color: transparent;
-    width: 20px;
+    width: 30px;
 }
 
 

@@ -44,9 +44,9 @@ for(let i = 0; i < ryanair.filas; i++){
 
         //Pinto cada celda, si el asiento está libre (true) lo pinto de verde, si está ocupado (false) lo pinto de rojo
         if(ryanair.asientos[i][j]) { //si es true, libres/verde sino ocupados/rojo
-            document.write("<td id='asientoR-" + i + "-" +j + "' style='background-color: green; width: 10px; height: 10px; text-align: center;'> </td>"); 
+            document.write("<td id='asientoR-" + i + "-" +j + "' style='background-color: green; width: 10px; height: 17px; text-align: center;'> </td>"); 
         } else {
-            document.write("<td id='asientoR-" + i + "-" +j + "' style='background-color: red; width: 10px; height: 10px; text-align: center;'> </td>"); 
+            document.write("<td id='asientoR-" + i + "-" +j + "' style='background-color: red; width: 10px; height: 17px; text-align: center;'> </td>"); 
     }
     }
     document.write("</tr>"); //Cierro fila
