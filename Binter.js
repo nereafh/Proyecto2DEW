@@ -113,13 +113,13 @@ document.write("</div>");
 
 
 
- //-------------INICIALIZAR SESSIONSTORAGE----------
+ //-------------INICIALIZAR LOCALSTORAGE----------
 /*
 Recorro la tabla, filas y columnas
-esta clave se utiliza en sessionStorage para guardar si el asiento seleccionado 
+esta clave se utiliza en localStorage para guardar si el asiento seleccionado 
 está libre u ocupado
 
-sessionStorage solo almacena cadenas
+localStorage solo almacena cadenas
 */
 for(let i = 0; i < binter.filas; i++){
     for(let j = 0; j < binter.columnas; j++){
@@ -127,11 +127,11 @@ for(let i = 0; i < binter.filas; i++){
         let clave = "asientoB-" + i + "-" + j; //Declaro una clave única para cada asiento basándome en el id de los asientos
         let td = document.getElementById(clave); //los asientos se encuentran en el td de la tabla
 
-        if(sessionStorage.getItem(clave) == null){ //si está vacío, quiere decir que se guarda el valor inicial que ya había: libre
-           sessionStorage.setItem(clave, binter.asientos[i][j] ? "true" : "false");
+        if(localStorage.getItem(clave) == null){ //si está vacío, quiere decir que se guarda el valor inicial que ya había: libre
+           localStorage.setItem(clave, binter.asientos[i][j] ? "true" : "false");
         } else { //si ya hay valor previo actualizo el estado del objeto
         
-            binter.asientos[i][j] = (sessionStorage.getItem(clave) === "true");
+            binter.asientos[i][j] = (localStorage.getItem(clave) === "true");
         }
 
         //Pinto el asiento según su estado actual 
@@ -291,8 +291,8 @@ if(residente === "si"){
 }
 
 /*
-Controlo la respuesta mediante otro switch y teniendo en cuenta la sessionStorage
-Si confirma la reserva el asiento se ocupa/false/rojo, actualizo el sessionStorage sino no
+Controlo la respuesta mediante otro switch y teniendo en cuenta la localStorage
+Si confirma la reserva el asiento se ocupa/false/rojo, actualizo el localStorage sino no
 */
 let confirmar = prompt(mensajeConfirmacion).toLowerCase();
 
@@ -302,7 +302,7 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
     case "si":
         binter.reservar(fila, columna);
         //actualizo sessionStorage
-        sessionStorage.setItem(clave, "false");
+        localStorage.setItem(clave, "false");
         binter.asientos[fila][columna] = false; //sincronizo/actualizo el objeto
         asientoEvento.style.backgroundColor = "red";
         alert("Reserva confirmada. Gracias.");
@@ -338,7 +338,7 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
         case "si":
             
             binter.liberar(fila, columna);
-            sessionStorage.setItem(clave, "true"); // actualizar asiento libre
+            localStorage.setItem(clave, "true"); // actualizar asiento libre
             binter.asientos[fila][columna] = true; //sincronizo/actualizo el asiento
             asientoEvento.style.backgroundColor = "green";
             
