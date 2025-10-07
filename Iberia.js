@@ -59,6 +59,9 @@ let iberia = new avion("Iberia", 40, 9, 100, 14, 13, 13);
     Recorro la matriz para pintar la tabla, comienzo por las filas y luego las columnas (podría hacerlo al revés)
     tr: table row (fila de la tabla)
     td: table data (celda de la tabla)
+
+
+    el array accede directamente a la instancia del objeto
     */
 
     for(let i = 0; i < iberia.filas; i++) {
