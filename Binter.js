@@ -375,6 +375,35 @@ let valConfirmar = false;
 } //cierre evento onclick
 } //cierre for 2
 } //cierre for 1
+
+//-------------BOTÓN VOLVER A PÁGINA PRINCIPAL--------------
+/*
+En Binter.html: 
+creo el botón, esta creación podría compararse con la que hice de las imágenes en index.html,
+las cuales no funcionan simplemente como enlaces, sino como botones enlazados 
+
+Llamo al botón con su id
+*/
+
+let botonInicio = document.getElementById("btnInicio");
+ botonInicio.onclick = function paginaInicial() {
+        window.location.href = "index.html";
+   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 Repito los pasos anteriores
 Creo un array que recorra las filas y dentro de ellas las columas

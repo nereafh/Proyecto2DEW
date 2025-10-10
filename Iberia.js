@@ -376,6 +376,25 @@ let valConfirmar = false;
 } //cierre for 2
 } //cierre for 1
 
+//-------------BOTÓN VOLVER A PÁGINA PRINCIPAL--------------
+/*
+En Iberia.html: 
+creo el botón, esta creación podría compararse con la que hice de las imágenes en index.html,
+las cuales no funcionan simplemente como enlaces, sino como botones enlazados 
+
+Llamo al botón con su id
+*/
+
+let botonInicio = document.getElementById("btnInicio");
+ botonInicio.onclick = function paginaInicial() {
+        window.location.href = "index.html";
+   };
+
+
+
+
+
+
 /*
 También podría haber controlado la residencia con el operador condicional ?:
 let residente = prompt("¿Eres residente en Canarias? (si/no)").toLowerCase();

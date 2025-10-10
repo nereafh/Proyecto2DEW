@@ -250,3 +250,30 @@ body {
     background-color: transparent;
     width: 7px;
 }
+
+
+/*--------BOTÓN VOLVER A INICIO-------*/
+.Inicio {
+  position: fixed; /* Lo fija respecto a la ventana del navegador */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 25px;
+  right: 100px;  /* Lo mueve 20px desde el borde derecho */
+  bottom: 100px; /* Lo baja 20px desde el borde inferior */
+}
+
+
+
+/*
+.volver:hover { 
+  background-color: #0056b3;
+}
+
+
+volver: clase
+:hover: pseudoclase, hover: se activa cuando el ratón está sobre el elemento
+: -> selecciono una clase especial: pseudoclase
+*/

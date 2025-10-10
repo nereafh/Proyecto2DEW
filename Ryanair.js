@@ -331,20 +331,17 @@ let valConfirmar = false;
 } //cierre evento onclick
 } //cierre for 2
 } //cierre for 1
+
+//-------------BOTÓN VOLVER A PÁGINA PRINCIPAL--------------
 /*
-Repito los pasos anteriores
-Creo un array que recorra las filas y dentro de ellas las columas
-LOGICA YA APLICADA EN LA SUPERCLASE AVION
-let asientos = [];
+En Ryanair.html: 
+creo el botón, esta creación podría compararse con la que hice de las imágenes en index.html,
+las cuales no funcionan simplemente como enlaces, sino como botones enlazados 
 
-for(let i = 0; i < filas; i++){
-    asientos[i] = [];
-
-    for(let j = 0; j < columnas; j++){
-        asientos[i][j] = true;
-    }
-}
+Llamo al botón con su id
 */
 
-
-
+let botonInicio = document.getElementById("btnInicio");
+ botonInicio.onclick = function paginaInicial() {
+        window.location.href = "index.html";
+   };
