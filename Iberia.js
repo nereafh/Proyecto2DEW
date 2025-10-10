@@ -59,6 +59,9 @@ let iberia = new avion("Iberia", 40, 9, 100, 14, 13, 13);
     Recorro la matriz para pintar la tabla, comienzo por las filas y luego las columnas (podría hacerlo al revés)
     tr: table row (fila de la tabla)
     td: table data (celda de la tabla)
+
+
+    el array accede directamente a la instancia del objeto
     */
 
     for(let i = 0; i < iberia.filas; i++) {
@@ -293,10 +296,13 @@ if(residente === "si"){
 Controlo la respuesta mediante otro switch y teniendo en cuenta la sessionStorage
 Si confirma la reserva el asiento se ocupa/false/rojo, actualizo el sessionStorage sino no
 */
-let confirmar = prompt(mensajeConfirmacion).toLowerCase();
+let confirmar;
+let valConfirmar = false;
 
+   while(!valConfirmar){
 
-   
+    confirmar = prompt(mensajeConfirmacion).toLowerCase();
+
     switch(confirmar){
     case "si":
         iberia.reservar(fila, columna);
@@ -305,18 +311,20 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
         iberia.asientos[fila][columna] = false; //sincronizo/actualizo el objeto
         asientoEvento.style.backgroundColor = "red";
         alert("Reserva confirmada. Gracias.");
+        valConfirmar = true;
     break;
     case "no":
         asientoEvento.style.backgroundColor = "green";
+        valConfirmar = true;
     break;
     default:
-        alert("Respuesta no válida. Por favor responde 'si' o 'no'.");
+        alert("Respuesta no válida. Por favor responda 'si' o 'no'.");
         asientoEvento.style.backgroundColor = "green";
     break;
     }
-
+   } //Cierro el bucle antes del break, ya que si lo pongo después sale de él
     break; //fin del case true del gran switch
-    
+
 
 
     case false:
@@ -330,7 +338,11 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
 
 
     let liberar
-    liberar = prompt("Este asiento ya está ocupado. ¿Desea liberarlo? (si/no)").toLowerCase();
+    let valiLibre = false;
+
+    while(!valiLibre){
+        
+        liberar = prompt("Este asiento ya está ocupado. ¿Desea liberarlo? (si/no)").toLowerCase();
 
     switch(liberar){
 
@@ -341,19 +353,22 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
             iberia.asientos[fila][columna] = true; //sincronizo/actualizo el asiento
             asientoEvento.style.backgroundColor = "green";
             
+            valiLibre = true;
             break;
 
         case "no":
             asientoEvento.style.backgroundColor = "red";
+            valiLibre = true;
             break;
 
         default:
-            alert("Respuesta no válida.");
+            alert("Respuesta no válida. Por favor responda 'si' o 'no'.");
             asientoEvento.style.backgroundColor = "red";
             break;
-    }
+    } 
+    } //Cierro el bucle antes del break, ya que si lo pongo después sale de él
     break; //cierre case false gran switch
-
+    
 }
         
 
