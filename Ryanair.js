@@ -253,30 +253,34 @@ if(residente === "si"){
 Controlo la respuesta mediante otro switch y teniendo en cuenta la localStorage
 Si confirma la reserva el asiento se ocupa/false/rojo, actualizo el localStorage sino no
 */
-let confirmar = prompt(mensajeConfirmacion).toLowerCase();
+let confirmar;
+let valConfirmar = false;
 
+   while(!valConfirmar){
 
-   
+    confirmar = prompt(mensajeConfirmacion).toLowerCase();
+
     switch(confirmar){
     case "si":
         ryanair.reservar(fila, columna);
-        //actualizo localStorage
+        //actualizo sessionStorage
         localStorage.setItem(clave, "false");
         ryanair.asientos[fila][columna] = false; //sincronizo/actualizo el objeto
         asientoEvento.style.backgroundColor = "red";
         alert("Reserva confirmada. Gracias.");
+        valConfirmar = true;
     break;
     case "no":
         asientoEvento.style.backgroundColor = "green";
+        valConfirmar = true;
     break;
     default:
-        alert("Respuesta no válida. Por favor responde 'si' o 'no'.");
+        alert("Respuesta no válida. Por favor responda 'si' o 'no'.");
         asientoEvento.style.backgroundColor = "green";
     break;
     }
-
+   } //Cierro el bucle antes del break, ya que si lo pongo después sale de él
     break; //fin del case true del gran switch
-    
 
 
     case false:
@@ -290,7 +294,11 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
 
 
     let liberar
-    liberar = prompt("Este asiento ya está ocupado. ¿Desea liberarlo? (si/no)").toLowerCase();
+    let valiLibre = false;
+
+    while(!valiLibre){
+        
+        liberar = prompt("Este asiento ya está ocupado. ¿Desea liberarlo? (si/no)").toLowerCase();
 
     switch(liberar){
 
@@ -301,17 +309,20 @@ let confirmar = prompt(mensajeConfirmacion).toLowerCase();
             ryanair.asientos[fila][columna] = true; //sincronizo/actualizo el asiento
             asientoEvento.style.backgroundColor = "green";
             
+            valiLibre = true;
             break;
 
         case "no":
             asientoEvento.style.backgroundColor = "red";
+            valiLibre = true;
             break;
 
         default:
-            alert("Respuesta no válida.");
+            alert("Respuesta no válida. Por favor responda 'si' o 'no'.");
             asientoEvento.style.backgroundColor = "red";
             break;
-    }
+    } 
+    } //Cierro el bucle antes del break, ya que si lo pongo después sale de él
     break; //cierre case false gran switch
 
 }
