@@ -41,19 +41,19 @@ body {
 .leyenda .NumAsientosRyanair {
   position: relative;
   top: -150px;  /* menor, mas sube */
-  left: 200px;  /* mueve a la derecha */
-  width: 150px;
-  height: 230px;
-  font-size: 11px;
+  left: 300px;  /* mueve a la derecha */
+  width: 250px;
+  height: 300px;
+  font-size: 15px;
   
 }
 
 .leyenda  .NumAsientosRyanair img  {
   position: absolute;
   top: 50px;  /* menor, mas sube */
-  right: -200px;  /* mueve a la derecha */
-  width: 500px;
-  height: 300px;
+  right: -300px;  /* mueve a la derecha */
+  width: 650px;
+  height: 350px;
   
 }
 
@@ -114,9 +114,10 @@ body {
 
 .contenedor {
     position: relative;
-    height: 170px;
-    width: 400px;
+    height: 250px;
+    width: 600px;
     margin: auto;
+    top: 30px;
 
 }
 
@@ -130,7 +131,7 @@ body {
     transform: rotate(90deg);  /* rota la imagen 90º para vertical */
     transform-origin: center ;
     top: 120px;
-    left: 200px;
+    left: 300px;
     
     
 
@@ -141,10 +142,10 @@ body {
     
     position: absolute; /* de esta forma se superpone a la imagen*/
     left: 97.5%;
-    top: 133%;
+    top: 110%;
     transform: translate(-42%, -50%) scale(0.6); /* escala al 90%, cuando las tablas son muy pequeñas es necesario para que el navegador no lo ignore*/
     transform-origin: center center;   
-    width: 130px;
+    width: 200px;
 
 }
 
