@@ -255,7 +255,7 @@ body {
 /*--------BOTÓN VOLVER A INICIO-------*/
 .Inicio {
   position: fixed; /* Lo fija respecto a la ventana del navegador */
-  background-color: #007bff;
+  background-color: #378ae1; /* Color de relleno */
   color: white;
   border: none;
   border-radius: 50px;

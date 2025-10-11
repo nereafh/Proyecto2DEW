@@ -383,6 +383,9 @@ creo el botón, esta creación podría compararse con la que hice de las imágen
 las cuales no funcionan simplemente como enlaces, sino como botones enlazados 
 
 Llamo al botón con su id
+
+window -> navegador
+location.href -> vuelve a la localización indicada en el navegador
 */
 
 let botonInicio = document.getElementById("btnInicio");
@@ -400,15 +403,15 @@ También podría haber controlado la residencia con el operador condicional ?:
 let residente = prompt("¿Eres residente en Canarias? (si/no)").toLowerCase();
 let esResidente = (residente === "si") ? true : false;
 
-if(esResidente) {
+if(esResidente) { //si es true, respuesta "si"
     document.write("<h3>Resides en canarias: " + residente + "</h3>");
 } else {
-    document.write("<h3>Resides en canarias: " + residente + "</h3>");
+    document.write("<h3>No resides en canarias: " + residente + "</h3>");
 }   
 */
 
 /*
-Array de varias dimensiones:
+Ejemplo de array de varias dimensiones:
 let asientos = [];
 
 for (let i = 0; i < filas; i++) {

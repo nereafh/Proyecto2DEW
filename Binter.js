@@ -14,8 +14,7 @@ let binter = new avion("Binter", 25, 4, 60, 7, 9, 9);
 
 /*
 Al igual que con el proyecto anterior en la parte del semáforo, utilizo un switch para
-controlar las diferentes opciones que puede elegir el usuario, en este caso si es o no residente
-y en función de eso le asigno un precio u otro a los vuelos
+controlar las diferentes opciones que puede elegir el usuario
 
 Creo una variable booleana inicializada a false para validar la residencia, utilizo
 un bucle while en donde indico que ésta tiene que ser true (!validarResidencia),
@@ -119,7 +118,7 @@ Recorro la tabla, filas y columnas
 esta clave se utiliza en localStorage para guardar si el asiento seleccionado 
 está libre u ocupado
 
-localStorage solo almacena cadenas
+localStorage solo almacena cadenas -> id del asiento
 */
 for(let i = 0; i < binter.filas; i++){
     for(let j = 0; j < binter.columnas; j++){
@@ -403,21 +402,6 @@ let botonInicio = document.getElementById("btnInicio");
 
 
 
-
-/*
-Repito los pasos anteriores
-Creo un array que recorra las filas y dentro de ellas las columas
-LOGICA YA APLICADA EN LA SUPERCLASE AVION
-let asientos = [];
-
-for(let i = 0; i < filas; i++){
-    asientos[i] = [];
-
-    for(let j = 0; j < columnas; j++){
-        asientos[i][j] = true;
-    }
-}
-*/
 
 
 
